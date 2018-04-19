@@ -44,4 +44,18 @@ public class CollegueController {
 		collegueRepo.save(updateCollegue);
 		return updateCollegue;
 	}
+
+	@RequestMapping(value = "/collegues/creation", method = RequestMethod.PUT)
+	public void saveCollegue(@RequestBody Collegue collegue) {
+		Collegue nouveauCollegue = new Collegue();
+
+		nouveauCollegue.setPseudo(collegue.getPseudo());
+		nouveauCollegue.setScore(collegue.getScore());
+		nouveauCollegue.setNom(collegue.getNom());
+		nouveauCollegue.setPrenom(collegue.getPrenom());
+		nouveauCollegue.setEmail(collegue.getEmail());
+		nouveauCollegue.setAdresse(collegue.getAdresse());
+
+		collegueRepo.save(nouveauCollegue);
+	}
 }
