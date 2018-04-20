@@ -40,6 +40,8 @@ public class Collegue {
 	 *
 	 */
 	public Collegue() {
+		this.score = 0;
+		this.photo = "https://img.stackshare.io/stack/332/7d9825fd0e38f5e05831d226afc41d9c.jpeg";
 	}
 
 	/**
