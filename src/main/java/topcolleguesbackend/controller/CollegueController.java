@@ -3,17 +3,22 @@
  */
 package topcolleguesbackend.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import topcolleguesbackend.controller.vm.ActionIhm;
+import topcolleguesbackend.controller.vm.CollegueAPI;
+import topcolleguesbackend.controller.vm.CollegueIhm;
 import topcolleguesbackend.entites.Collegue;
 import topcolleguesbackend.repository.CollegueRepository;
 import topcolleguesbackend.service.VoteService;
@@ -51,14 +56,29 @@ public class CollegueController {
 	}
 
 	@RequestMapping(value = "/collegues/creation", method = RequestMethod.PUT)
-	public void saveCollegue(@RequestBody Collegue collegue) {
+	public void saveCollegue(@RequestBody CollegueIhm collegue) {
+		
+		String matriculeTest = collegue.getMatricule();
 		Collegue nouveauCollegue = new Collegue();
-		nouveauCollegue.setPseudo(collegue.getPseudo());
-		nouveauCollegue.setNom(collegue.getNom());
-		nouveauCollegue.setPrenom(collegue.getPrenom());
-		nouveauCollegue.setEmail(collegue.getEmail());
-		nouveauCollegue.setAdresse(collegue.getAdresse());
-
+		
+		RestTemplate restTemp = new RestTemplate();
+		ResponseEntity<CollegueAPI[]> response = restTemp.getForEntity("http://collegues-api.cleverapps.io/collegues", CollegueAPI[].class);
+		List<CollegueAPI> collegues = Arrays.asList(response.getBody());
+		for (CollegueAPI collegueAPI : collegues) {
+			if (collegueAPI.getMatricule().equals(collegue.getMatricule())) {
+				nouveauCollegue.setPseudo(collegue.getPseudo());
+				if (collegue.getImageUrl() == null) {
+					nouveauCollegue.setPhoto(collegueAPI.getPhoto());
+				} else {
+					nouveauCollegue.setPhoto(collegue.getImageUrl());
+				}
+				nouveauCollegue.setNom(collegueAPI.getNom());
+				nouveauCollegue.setPrenom(collegueAPI.getPrenom());
+				nouveauCollegue.setEmail(collegueAPI.getEmail());
+				nouveauCollegue.setAdresse(collegueAPI.getAdresse());
+			}
+		}
 		collegueRepo.save(nouveauCollegue);
 	}
+
 }

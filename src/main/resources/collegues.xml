@@ -11,8 +11,8 @@
 		<property name="photo" value="https://img.stackshare.io/stack/332/7d9825fd0e38f5e05831d226afc41d9c.jpeg"></property>
 		<property name="nom" value="CI"></property>
 		<property name="prenom" value="Travis"></property>
-		<property name="email" value="travis@ci.fr"></property>
-		<property name="adresse" value="1 rue du web"></property>
+		<property name="email" value="travis1@CI.fr"></property>
+		<property name="adresse" value="1 rue du Web"></property>
 	</bean>
 	
 	<bean id="collegue2" class="topcolleguesbackend.entites.Collegue">
@@ -21,8 +21,8 @@
 		<property name="photo" value="https://img.stackshare.io/stack/332/7d9825fd0e38f5e05831d226afc41d9c.jpeg"></property>
 		<property name="nom" value="CI"></property>
 		<property name="prenom" value="Traviso"></property>
-		<property name="email" value="travis2@ci.fr"></property>
-		<property name="adresse" value="2 rue du web"></property>
+		<property name="email" value="travis2@CI.fr"></property>
+		<property name="adresse" value="2 rue du Web"></property>
 	</bean>
 	
 	<bean id="collegue3" class="topcolleguesbackend.entites.Collegue">
@@ -30,9 +30,9 @@
 		<property name="score" value="250"></property>
 		<property name="photo" value="https://img.stackshare.io/stack/332/7d9825fd0e38f5e05831d226afc41d9c.jpeg"></property>
 		<property name="nom" value="CI"></property>
-		<property name="prenom" value="Travise"></property>
-		<property name="email" value="travis3@ci.fr"></property>
-		<property name="adresse" value="3 rue du web"></property>
+		<property name="prenom" value="Travisu"></property>
+		<property name="email" value="travis3@CI.fr"></property>
+		<property name="adresse" value="3 rue du Web"></property>
 	</bean>
 	
 	<bean id="collegue4" class="topcolleguesbackend.entites.Collegue">
@@ -40,9 +40,9 @@
 		<property name="score" value="10"></property>
 		<property name="photo" value="https://img.stackshare.io/stack/332/7d9825fd0e38f5e05831d226afc41d9c.jpeg"></property>
 		<property name="nom" value="CI"></property>
-		<property name="prenom" value="Travisu"></property>
-		<property name="email" value="travis@ci.fr"></property>
-		<property name="adresse" value="4 rue du web"></property>
+		<property name="prenom" value="Travisi"></property>
+		<property name="email" value="travis4@CI.fr"></property>
+		<property name="adresse" value="4 rue du Web"></property>
 	</bean>
 	
 	<bean id="collegue5" class="topcolleguesbackend.entites.Collegue">
@@ -50,9 +50,9 @@
 		<property name="score" value="-990"></property>
 		<property name="photo" value="https://img.stackshare.io/stack/332/7d9825fd0e38f5e05831d226afc41d9c.jpeg"></property>
 		<property name="nom" value="CI"></property>
-		<property name="prenom" value="Travisi"></property>
-		<property name="email" value="travis2"></property>
-		<property name="adresse" value="5 rue du web"></property>
+		<property name="prenom" value="Travisa"></property>
+		<property name="email" value="travis5@CI.fr"></property>
+		<property name="adresse" value="5 rue du Web"></property>
 	</bean>
 	
 	<bean id="collegue6" class="topcolleguesbackend.entites.Collegue">
@@ -60,9 +60,9 @@
 		<property name="score" value="990"></property>
 		<property name="photo" value="https://img.stackshare.io/stack/332/7d9825fd0e38f5e05831d226afc41d9c.jpeg"></property>
 		<property name="nom" value="CI"></property>
-		<property name="prenom" value="Travisa"></property>
-		<property name="email" value="travis2"></property>
-		<property name="adresse" value="6 rue du web"></property>
+		<property name="prenom" value="Travise"></property>
+		<property name="email" value="travis6@CI.fr"></property>
+		<property name="adresse" value="6 rue du Web"></property>
 	</bean>
 </beans>
 		
