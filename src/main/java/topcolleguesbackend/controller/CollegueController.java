@@ -20,7 +20,9 @@ import topcolleguesbackend.controller.vm.ActionIhm;
 import topcolleguesbackend.controller.vm.CollegueAPI;
 import topcolleguesbackend.controller.vm.CollegueIhm;
 import topcolleguesbackend.entites.Collegue;
+import topcolleguesbackend.entites.VoteAction;
 import topcolleguesbackend.repository.CollegueRepository;
+import topcolleguesbackend.repository.VoteRepository;
 import topcolleguesbackend.service.VoteService;
 
 /**
@@ -33,6 +35,8 @@ public class CollegueController {
 
 	@Autowired
 	private CollegueRepository collegueRepo;
+	@Autowired
+	private VoteRepository voteRepo;
 
 	@RequestMapping(method = RequestMethod.GET, path = "/collegues")
 	public List<Collegue> listerCollegue() {
@@ -42,10 +46,15 @@ public class CollegueController {
 	@RequestMapping(value = "/collegues/{pseudo}", method = RequestMethod.PATCH)
 	public Collegue scoreCollegue(@PathVariable String pseudo, @RequestBody ActionIhm actionIhm) {
 		Collegue updateCollegue = new Collegue();
+		VoteAction voteSave = new VoteAction();
 		if (collegueRepo.existsByPseudo(pseudo)) {
 			updateCollegue = collegueRepo.findCollegueByPseudo(pseudo);
+			voteSave.setAvis(actionIhm.getAction());
+			voteSave.setCollegue(updateCollegue);
 			updateCollegue = VoteService.GestionScore(actionIhm.getAction(), updateCollegue);
+			voteSave.setScore(updateCollegue.getScore());
 		}
+		voteRepo.save(voteSave);
 		collegueRepo.save(updateCollegue);
 		return updateCollegue;
 	}

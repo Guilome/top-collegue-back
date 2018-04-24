@@ -15,6 +15,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 import topcolleguesbackend.entites.Collegue;
+import topcolleguesbackend.entites.VoteAction;
 
 /**
  * @author GOBER Guillaume
@@ -29,9 +30,9 @@ public class StartUpAppListener {
 	@Transactional
 	@EventListener(ContextRefreshedEvent.class)
 	public void contextRefreshedEvent() {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("collegues.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("collegues.xml", "votes.xml");
 
-		Stream.of(Collegue.class).flatMap(classe -> context.getBeansOfType(classe).values().stream())
+		Stream.of(Collegue.class, VoteAction.class).flatMap(classe -> context.getBeansOfType(classe).values().stream())
 				.forEach(em::persist);
 	}
 }

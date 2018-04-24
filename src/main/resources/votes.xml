@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+			
+	<import resource="classpath:collegues.xml" />
+		
+		
+	<bean id="vote1" class="topcolleguesbackend.entites.VoteAction">
+		<property name="avis" value="AIMER"></property>
+		<property name="collegue">
+			<ref bean="collegue1"/>
+		</property>
+		<property name="score" value="970"></property>
+	</bean>
+	
+	<bean id="vote2" class="topcolleguesbackend.entites.VoteAction">
+		<property name="avis" value="DETESTER"></property>
+		<property name="collegue">
+			<ref bean="collegue3"/>
+		</property>
+		<property name="score" value="50"></property>
+	</bean>
+	
+	<bean id="vote3" class="topcolleguesbackend.entites.VoteAction">
+		<property name="avis" value="AIMER"></property>
+		<property name="collegue">
+			<ref bean="collegue1"/>
+		</property>
+		<property name="score" value="980"></property>
+	</bean>
+	
+	<bean id="vote4" class="topcolleguesbackend.entites.VoteAction">
+		<property name="avis" value="DETESTER"></property>
+		<property name="collegue">
+			<ref bean="collegue5"/>
+		</property>
+		<property name="score" value="300"></property>
+	</bean>
+	
+	<bean id="vote5" class="topcolleguesbackend.entites.VoteAction">
+		<property name="avis" value="DETESTER"></property>
+		<property name="collegue">
+			<ref bean="collegue5"/>
+		</property>
+		<property name="score" value="200"></property>
+	</bean>
+	
+	<bean id="vote6" class="topcolleguesbackend.entites.VoteAction">
+		<property name="avis" value="DETESTER"></property>
+		<property name="collegue">
+			<ref bean="collegue5"/>
+		</property>
+		<property name="score" value="580"></property>
+	</bean>
+</beans>
+		

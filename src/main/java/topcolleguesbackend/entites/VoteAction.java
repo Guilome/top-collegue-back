@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -20,12 +21,16 @@ public class VoteAction {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
-	private Integer id;
+	Integer id;
 	@Column(name = "AVIS")
-	private String avis;
+	Avis avis;
+	@OneToOne
+	Collegue collegue;
+	@Column(name = "SCORE")
+	Integer score;
 
-	public VoteAction(String avis) {
-		this.avis = avis;
+	public VoteAction() {
+
 	}
 
 	/**
@@ -36,24 +41,60 @@ public class VoteAction {
 	public Integer getId() {
 		return id;
 	}
-
 	/**
 	 * Getter
 	 * 
 	 * @return the avis
 	 */
-	public String getAvis() {
+	public Avis getAvis() {
 		return avis;
 	}
-
 	/**
 	 * Setter
 	 * 
 	 * @param avis
 	 *            the avis to set
 	 */
-	public void setAvis(String avis) {
-		avis = avis;
+	public void setAvis(Avis avis) {
+		this.avis = avis;
+	}
+
+	/**
+	 * Getter
+	 * 
+	 * @return the collegue
+	 */
+	public Collegue getCollegue() {
+		return collegue;
+	}
+
+	/**
+	 * Setter
+	 * 
+	 * @param collegue
+	 *            the collegue to set
+	 */
+	public void setCollegue(Collegue collegue) {
+		this.collegue = collegue;
+	}
+
+	/**
+	 * Getter
+	 * 
+	 * @return the score
+	 */
+	public Integer getScore() {
+		return score;
+	}
+
+	/**
+	 * Setter
+	 * 
+	 * @param score
+	 *            the score to set
+	 */
+	public void setScore(Integer score) {
+		this.score = score;
 	}
 
 }
